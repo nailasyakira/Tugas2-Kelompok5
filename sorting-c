@@ -83,3 +83,47 @@ void insertionSort(int arr[], int n) {
 // Selection Sort
 void selectionSort(int arr[], int n) {
     for(int i = 0; i < n - 1; i++) {
+
+ int min = i;
+
+        for(int j = i + 1; j < n; j++) {
+            if(arr[j] < arr[min]) {
+                min = j;
+            }
+        }
+
+        swapInt(&arr[i], &arr[min]);
+    }
+}
+
+// MERGE SORT
+
+void merge(char arr[][PANJANG_KATA], int left, int mid, int right) {
+
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    char L[n1][PANJANG_KATA];
+    char R[n2][PANJANG_KATA];
+
+    for(int i = 0; i < n1; i++) {
+        strcpy(L[i], arr[left + i]);
+    }
+
+    for(int j = 0; j < n2; j++) {
+        strcpy(R[j], arr[mid + 1 + j]);
+    }
+
+    int i = 0;
+    int j = 0;
+    int k = left;
+
+    while(i < n1 && j < n2) {
+
+        if(strcmp(L[i], R[j]) <= 0) {
+            strcpy(arr[k], L[i]);
+            i++;
+        } else {
+            strcpy(arr[k], R[j]);
+            j++;
+        }
