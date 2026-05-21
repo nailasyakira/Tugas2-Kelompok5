@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define SIZE 1000
+#define MAX_WORDS 5000
+#define PANJANG_KATA 100
+
+// SWAP
+
+void swapInt(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void swapStr(char a[], char b[]) {
+    char temp[PANJANG_KATA];
+    strcpy(temp, a);
+    strcpy(a, b);
+    strcpy(b, temp);
+}
+
+// DISPLAY
+
+void tampilInt(int arr[], int n) {
+    for(int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+void tampilStr(char arr[][PANJANG_KATA], int n) {
+    for(int i = 0; i < n; i++) {
+        printf("%s\n", arr[i]);
+    }
+}
+
+// SHUFFLE
+
+void shuffleInt(int arr[], int n) {
+    for(int i = 0; i < n; i++) {
