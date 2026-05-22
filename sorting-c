@@ -213,4 +213,46 @@ void shellSort(char arr[][PANJANG_KATA], int n) {
     }
 }
 
+// MAIN
 
+int main() {
+
+    srand(time(NULL));
+
+    int menu;
+    int pilih;
+
+    do {
+
+        printf("\n===== MENU UTAMA =====\n");
+        printf("1. Sorting Dasar\n");
+        printf("2. Advance Sorting\n");
+        printf("3. Keluar\n");
+        printf("Pilih menu : ");
+        scanf("%d", &menu);
+
+        // SORTING DASAR
+
+        if(menu == 1) {
+
+            int data[SIZE];
+
+            // Generate random
+            for(int i = 0; i < SIZE; i++) {
+                data[i] = rand() % 10000;
+            }
+
+            // Shuffle
+            shuffleInt(data, SIZE);
+
+            printf("\n===== SORTING DASAR =====\n");
+            printf("1. Bubble Sort\n");
+            printf("2. Insertion Sort\n");
+            printf("3. Selection Sort\n");
+            printf("4. Kembali\n");
+            printf("Pilih metode : ");
+            scanf("%d", &pilih);
+
+            if(pilih == 4) {
+                continue;
+            }
