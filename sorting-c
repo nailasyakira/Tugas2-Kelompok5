@@ -169,3 +169,48 @@ int partition(char arr[][PANJANG_KATA], int low, int high) {
     for(int j = low; j < high; j++) {
 
         if(strcmp(arr[j], pivot) < 0) {
+
+i++;
+            swapStr(arr[i], arr[j]);
+        }
+    }
+
+    swapStr(arr[i + 1], arr[high]);
+
+    return i + 1;
+}
+
+void quickSort(char arr[][PANJANG_KATA], int low, int high) {
+
+    if(low < high) {
+
+        int pi = partition(arr, low, high);
+
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+// SHELL SORT
+
+void shellSort(char arr[][PANJANG_KATA], int n) {
+
+    for(int gap = n / 2; gap > 0; gap /= 2) {
+
+        for(int i = gap; i < n; i++) {
+
+            char temp[PANJANG_KATA];
+            strcpy(temp, arr[i]);
+
+            int j;
+
+            for(j = i; j >= gap && strcmp(arr[j - gap], temp) > 0; j -= gap) {
+                strcpy(arr[j], arr[j - gap]);
+            }
+
+            strcpy(arr[j], temp);
+        }
+    }
+}
+
+
