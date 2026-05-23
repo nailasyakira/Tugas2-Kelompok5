@@ -256,3 +256,46 @@ int main() {
             if(pilih == 4) {
                 continue;
             }
+
+            printf("\n10 Data Sebelum Sorting:\n");
+            tampilInt(data, 10);
+
+            clock_t start, end;
+
+            start = clock();
+
+            switch(pilih) {
+
+                case 1:
+                    bubbleSort(data, SIZE);
+                    printf("\nMetode: Bubble Sort\n");
+                    break;
+
+                case 2:
+                    insertionSort(data, SIZE);
+                    printf("\nMetode: Insertion Sort\n");
+                    break;
+
+                case 3:
+                    selectionSort(data, SIZE);
+                    printf("\nMetode: Selection Sort\n");
+                    break;
+
+                default:
+                    printf("Pilihan tidak valid!\n");
+                    continue;
+            }
+
+            end = clock();
+
+            double waktu = ((double)(end - start)) / CLOCKS_PER_SEC;
+
+            printf("\n10 Data Setelah Sorting:\n");
+            tampilInt(data, 10);
+
+            printf("\nWaktu Eksekusi: %f detik\n", waktu);
+        }
+
+        // ADVANCE SORTING
+
+        else if(menu == 2) {
