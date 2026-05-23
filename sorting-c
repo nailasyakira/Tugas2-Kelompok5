@@ -344,3 +344,48 @@ char words[MAX_WORDS][PANJANG_KATA];
             switch(pilih) {
 
                 case 1:
+                    mergeSort(words, 0, count - 1);
+                    printf("\nMetode: Merge Sort\n");
+                    break;
+
+                case 2:
+                    quickSort(words, 0, count - 1);
+                    printf("\nMetode: Quick Sort\n");
+                    break;
+
+                case 3:
+                    shellSort(words, count);
+                    printf("\nMetode: Shell Sort\n");
+                    break;
+
+                default:
+                    printf("Pilihan tidak valid!\n");
+                    continue;
+            }
+
+            end = clock();
+
+            double waktu = ((double)(end - start)) / CLOCKS_PER_SEC;
+
+            printf("\n10 Data Setelah Sorting:\n");
+            tampilStr(words, 10);
+
+            printf("\nWaktu Eksekusi: %f detik\n", waktu);
+        }
+
+        // KELUAR
+
+        else if(menu == 3) {
+
+            printf("\nProgram selesai.\n");
+        }
+
+        else {
+
+            printf("\nMenu tidak valid!\n");
+        }
+
+    } while(menu != 3);
+
+    return 0;
+}
