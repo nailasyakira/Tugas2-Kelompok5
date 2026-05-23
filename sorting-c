@@ -299,3 +299,48 @@ int main() {
         // ADVANCE SORTING
 
         else if(menu == 2) {
+
+char words[MAX_WORDS][PANJANG_KATA];
+            int count = 0;
+
+            FILE *file;
+
+            file = fopen("words.txt", "r");
+
+            if(file == NULL) {
+                printf("\nFile words.txt tidak ditemukan!\n");
+                printf("Pastikan file ada di folder yang sama.\n");
+                continue;
+            }
+
+            while(fscanf(file, "%s", words[count]) != EOF) {
+                count++;
+            }
+
+            fclose(file);
+
+            // Shuffle
+            shuffleStr(words, count);
+
+            printf("\n===== ADVANCE SORTING =====\n");
+            printf("1. Merge Sort\n");
+            printf("2. Quick Sort\n");
+            printf("3. Shell Sort\n");
+            printf("4. Kembali\n");
+            printf("Pilih metode : ");
+            scanf("%d", &pilih);
+
+            if(pilih == 4) {
+                continue;
+            }
+
+            printf("\n10 Data Sebelum Sorting:\n");
+            tampilStr(words, 10);
+
+            clock_t start, end;
+
+            start = clock();
+
+            switch(pilih) {
+
+                case 1:
